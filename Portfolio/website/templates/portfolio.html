@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% from "components/card.html" import card %}
+
+{% block title %}Portfolio{% endblock %}
+
+{% block content %}
+    <h1>Projects</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {{card('static/best_books.png', 
+                       'Best Books', 
+                       'https://github.com/dany1459/AI-Engineering/tree/main/Chapter%201/Best%20Books%20Ever%20Challenge', 
+                       'An in-depth analysis of the top 5000 books of all time.')}}
+            </div>
+            <div class="col">
+                {{card('static/trackit_fitness.png', 
+                       'Trackit Fitness', 
+                       'https://github.com/dany1459/AI-Engineering/tree/main/Chapter%202/Trackit%20Fitness%20App', 
+                       """Trackit is an android app that allows the users to keep track of their daily movements. 
+                       It communicates with the sensors in the phone to collect data describing the users' engagements in the day. 
+                       Users have the option of turning on these sensors by just clicking a button on the app. 
+                       Once the users turns it off, they can choose to save this data to disk. 
+                       Then the users can click a button to see the analysis of their day's movements. 
+                       The app summarizes the movement means in actions done by standing still, walking and being in a mode of transportation.
+                       It gives the total distances grouped by movement, total time, and estimated calories burned. 
+                       It goes on to recommend suitable activities the users can engage in the following day.""")}}
+            </div>
+        </div>
+    </div>
+{% endblock %}
