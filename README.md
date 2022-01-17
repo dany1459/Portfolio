@@ -1,2 +1,2 @@
 # Software-Engineering
-HTML, CSS, JavaScript
+HTML, CSS
