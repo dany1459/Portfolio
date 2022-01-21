@@ -1,11 +1,17 @@
-:root {
+/* :root {
     --background-color: #585b56ff;
     --primary-color: #f1f7edff;
     --secondary-color: #e54b4bff;
     --tertiary-color: #3bc14aff;
+} */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body {
+/* body {
     background: linear-gradient(150deg, var(--background-color), var(--background-color), var(--primary-color));
     color: black;
     font-family: 'Roboto', sans-serif;
@@ -37,4 +43,4 @@ a {
     margin-top: 200px;
     display: flex;
     justify-content: center;
-}
+} */
