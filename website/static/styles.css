@@ -1,0 +1,46 @@
+/* :root {
+    --background-color: #585b56ff;
+    --primary-color: #f1f7edff;
+    --secondary-color: #e54b4bff;
+    --tertiary-color: #3bc14aff;
+} */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* body {
+    background: linear-gradient(150deg, var(--background-color), var(--background-color), var(--primary-color));
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    color: var(--tertiary-color);
+}
+
+a {
+    color: var(--secondary-color);
+    font-weight: bolder;
+}
+
+.header-main {
+    display: flex;
+    flex-direction: column-reverse;
+    background-image: url('profile_background.jpg');
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.footer {
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+} */
