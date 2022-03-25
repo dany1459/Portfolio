@@ -1,36 +1,100 @@
 {% extends "base.html" %}
+{% from "components/card.html" import card %}
+{% from "components/card2.html" import card2 %}
 
 {% block title %}Home Page{% endblock %}
 
 {% block content %}
-<header class="header-main">
-    <img src="static/profile_picture.jpg" style="max-width: 200px; border-radius: 100px;">
-</header>
+    <div class="header" align="center">
+        <header class="row">
+            <div class="col"><br><br>
+                <h1 class="myname">Dan Adrian Dobre</h1><br>
+                <p>I am a data scientist with a passion for football, cooking and traveling.</p>
+            </div>
+            <div class="col">
+                <img src="static/profile_picture.jpg" style="max-width: 300px; border-radius: 150px;">
+            </div>
+        </header>
+    </div>
 
-    <h1>Dan Adrian Dobre</h1>
-    <br>
-
-    <h3>About Me</h3>
-    <p>I am a data scientist with a passion for traveling.</p>
-    <br>
-
-    <h3>Education</h3>
-    <div class="container" align="center">
+    <div class="about">
+        <h3>About Me</h3>
         <div class="row">
-            <div class="col">"Al. D. Ghica" College<br>2003 - 2007</div>
-            <div class="col">"Carol Davila" University<br>2007 - 2013</div>
-            <div class="col">Strive School<br>2021 - 2022</div>
+            <div class="col-xs-1">
+                {{card2('static/education.png', 
+                    "'Al. D. Ghica' College 2003-2007")}}
+            </div>
+            <div class="col-xs-1">
+                {{card2('static/education.png', 
+                "'Carol Davila' University 2007 - 2013")}}
+            </div>
+            <div class="col-xs-1">
+                {{card2('static/work.png', 
+                    'Hornsjoe Hoyfjellshotell 2014 - 2016')}}
+            </div>
+            <div class="col-xs-1">
+                {{card2('static/volunteer.png', 
+                    'DAPP Zambia 2016 - 2017',
+                    'http://dappzambia.org')}}
+            </div>
+            <div class="col-xs-1">
+                {{card2('static/education.png', 
+                "Horeca School 2017 - 2018")}}
+            </div>
+            <div class="col-xs-1">
+                {{card2('static/work.png', 
+                    "Trenta Pizza 2017 - 2018")}}
+            </div>
+            <div class="col-xs-1">
+                {{card2('static/work.png', 
+                    "Flash Harry's 2018 - 2020")}}
+            </div>
+            <div class="col-xs-1">
+                {{card2('static/work.png', 
+                    "Hartley's Restaurant 2020 - 2021")}}
+            </div>
+            <div class="col-xs-1">
+                {{card2('static/education.png', 
+                    'Strive School 2021 - 2022',
+                    'https://strive.school')}}
+            </div>
         </div>
     </div>
-    <br>
 
-    <h3>Work Experience</h3>
-    <div class="container" align="center">
+    <div class="projects">
+        <h3>Data Science Projects</h3>
         <div class="row">
-            <div class="col">Hornsjoe Hoyfjellshotell<br>2014 - 2016<br>Chef</div>
-            <div class="col">DAPP Zambia<br>2016 - 2017<br>Volunteer</div>
-            <div class="col">Flash Harry's<br>2018 - 2020<br>Head Chef</div>
+            <div class="col-xs-1">
+                {{card('static/credit-card.jpg', 
+                    'Credit Card Fraud', 
+                    'https://github.com/dany1459/AI-Engineering/blob/main/Chapter%202/07.%20SVM/04_BONUS_credit_card_fraud_kaggle.ipynb')}}
+            </div>
+            <div class="col-xs-1">
+                {{card('static/hipocrate.jpg', 
+                    'Hipocratia', 
+                    'https://github.com/dany1459/AI-Engineering/tree/main/Chapter%202/09.%20Hipocratia')}}
+            </div>
+            <div class="col-xs-1">
+                {{card('static/trackit_fitness.png', 
+                    'Trackit Fitness App', 
+                    'https://github.com/dany1459/AI-Engineering/tree/main/Chapter%202/Trackit%20Fitness%20App')}}
+            </div>
+            <div class="col-xs-1">
+                {{card('static/yoga_silhouette.jpg', 
+                    'Fitness Pygame', 
+                    'https://github.com/dany1459/AI-Engineering/tree/main/Chapter%203/17.%20Fitness%20Pygame')}}
+            </div>
+            <div class="col-xs-1">
+                {{card('static/best_books.jpg', 
+                    'Best Books Analysis', 
+                    'https://github.com/dany1459/AI-Engineering/tree/main/Chapter%201/Best%20Books%20Ever%20Challenge')}}
+            </div>
+            <div class="col-xs-1">
+                {{card('static/self-driving-car.jpg', 
+                    'Self-Driving Cars', 
+                    'https://github.com/dany1459/AI-Engineering/tree/main/Chapter%203/09.%20Computer%20Vision%20Team%20Project')}}
+            </div>
         </div>
     </div>
-    <br>
+
 {% endblock %}
