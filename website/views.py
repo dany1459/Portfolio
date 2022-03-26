@@ -1,16 +1,15 @@
 from flask import Blueprint, render_template, request, flash
-from .models import Message
+from .models import Message, Note
 from . import db
+import pickle
+import numpy as np
+import pandas as pd
 
 views = Blueprint('views', __name__)
 
 @views.route("/")
 def home():
     return render_template("home.html")
-
-@views.route("/portfolio")
-def portfolio():
-    return render_template("portfolio.html")
 
 @views.route("/contact", methods=['GET', 'POST'])
 def contact():
@@ -28,3 +27,8 @@ def contact():
             flash('Message Sent!', category='success')
         
     return render_template("contact.html")
+
+@views.route("/football", methods=['GET', 'POST'])
+def predict():
+    return render_template('football.html')
+
