@@ -1,5 +1,3 @@
-{% from "components/navbar.html" import navbar %}
-
 <!doctype html>
 <html lang="en">
     <head>
@@ -24,7 +22,32 @@
     </head>
 
     <body>
-        {{navbar()}}
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js" integrity="sha512-0xrMWUXzEAc+VY7k48pWd5YT6ig03p4KARKxs4Bqxb9atrcn2fV41fWs+YXTKb8lD2sbPAmZMjKENiyzM/Gagw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        
+        <div id="navigation-bar">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse" id="navbar">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" id="home" href="/">About</a>
+                        <a class="nav-item nav-link" id="predict" href="/football">Football</a>
+                        <a class="nav-item nav-link" id="contact" href="/contact">Contact</a>
+                        {% if current_user.is_authenticated %}
+                            <a class="nav-item nav-link" id="notes" href="/notes">Notes</a>
+                            <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
+                        {% else %}
+                            <a class="nav-item nav-link" id="login" href="/login">Login</a>
+                            <a class="nav-item nav-link" id="signUp" href="/sign-up">Sign Up</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </nav>
+        </div>
 
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
@@ -48,27 +71,56 @@
         {% endif %}
         {% endwith %}
 
-        <div class="container">
+        <div class="">
             {% block content %}{% endblock %}
         </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
-                integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
-                crossorigin="anonymous">
-        </script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <script type="text/javascript"
+            src="{{ url_for('static', filename='app.js') }}"></script>
 
         <footer class="footer">
-            <span>
-                <img src="logo.png" alt="">
-                <a href="/">Home</a>
-                <a href="/portfolio">Portfolio</a>
-                <a href="/contact">Contact</a>
-            </span>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js" integrity="sha512-0xrMWUXzEAc+VY7k48pWd5YT6ig03p4KARKxs4Bqxb9atrcn2fV41fWs+YXTKb8lD2sbPAmZMjKENiyzM/Gagw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="app.js"></script>
+            <div class="container">
+                <div class="row" align="center">
+                    <div class="col">
+                        Powered by: <br>
+                            <a href="https://www.python.org" target="_blank"><img src="static/logos/python-logo.png" alt="Python"></a>
+                            <a href="https://html.com" target="_blank"><img src="static/logos/html-logo.png" alt="HTML"></a>
+                            <a href="https://devdocs.io/css/" target="_blank"><img src="static/logos/css-logo.png" alt="CSS"></a>
+                            <a href="https://devdocs.io/javascript/" target="_blank"><img src="static/logos/javascript-logo.png" alt="JavaScript"></a>
+                            <a href="https://scikit-learn.org/stable/index.html" target="_blank"><img src="static/logos/sklearn-logo.png" alt="SKLearn"></a>
+                            <a href="https://pandas.pydata.org/docs/getting_started/index.html" target="_blank"><img src="static/logos/pandas-logo.png" alt="Pandas"></a>
+                            <a href="https://jinja.palletsprojects.com/en/3.0.x/" target="_blank"><img src="static/logos/jinja-logo.png" alt="Jinja"></a>
+                            <a href="https://getbootstrap.com" target="_blank"><img src="static/logos/bootstrap-logo.png" alt="Bootstrap"></a>
+                            <a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank"><img src="static/logos/flask-logo.png" alt="Flask"></a>
+                            <a href="https://werkzeug.palletsprojects.com/en/2.0.x/" target="_blank"><img src="static/logos/werkzeug-logo.png" alt="Werkzeug"></a>
+                            <a href="https://dev.mysql.com/doc/" target="_blank"><img src="static/logos/sql-logo.png" alt="SQL Database"></a>
+                            <a href="https://www.docker.com" target="_blank"><img src="static/logos/docker-logo.png" alt="Docker"></a>
+                    </div>
 
+                    <div class="col"><b><br>
+                        <a href="/">About</a><br>
+                        <a href="/football">Football</a><br>
+                        <a href="/contact">Contact</a><br>
+                        {% if current_user.is_authenticated %}
+                            <a href="/notes">Notes</a><br>
+                            <a href="/logout">Logout</a><br>
+                        {% else %}
+                            <a href="/login">Login</a><br>
+                            <a href="/sign-up">Sign Up</a><br>
+                        {% endif %}</b>
+                    </div>
+                </div>
+            </div>
         </footer>
+
     </body>
 </html>
