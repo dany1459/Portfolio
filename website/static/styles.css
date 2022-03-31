@@ -1,46 +1,74 @@
-/* :root {
-    --background-color: #585b56ff;
-    --primary-color: #f1f7edff;
-    --secondary-color: #e54b4bff;
-    --tertiary-color: #3bc14aff;
-} */
-
+:root {
+    --background-color: #131B23;
+    --primary-color: #FFFAFF;
+    --secondary-color: #5BC8AF;
+    --tertiary-color: crimson;}
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;}
 
-/* body {
-    background: linear-gradient(150deg, var(--background-color), var(--background-color), var(--primary-color));
-    color: black;
-    font-family: 'Roboto', sans-serif;
-    font-size: 22px;
-}
 
-h1,h2,h3,h4,h5,h6 {
-    color: var(--tertiary-color);
-}
-
+body, .card {
+    background: var(--background-color);
+    color: var(--primary-color);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;}
+h1, h2, h3 {
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;}
+h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;}
 a {
     color: var(--secondary-color);
-    font-weight: bolder;
-}
+    font-weight: bold;}
+a:link {
+    text-decoration: none;}
 
-.header-main {
-    display: flex;
-    flex-direction: column-reverse;
-    background-image: url('profile_background.jpg');
-    width: 100%;
-    height: auto;
-    min-height: 300px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+
+#navigation-bar {
+    background-color: var(--secondary-color);}
+#navigation-bar a {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--background-color);}
+#navigation-bar a:hover, a:hover {
+    color: var(--tertiary-color);}
+
+
+#contact-button, #signup-button, #login-button, #add-note-button {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    font-weight: bold;
+    border: solid 1px var(--secondary-color);}
+#contact-button:hover, #signup-button:hover, #login-button:hover, #add-note-button:hover {
+    background-color: var(--background-color);
+    color: var(--primary-color);}
+
 
 .footer {
-    margin-top: 200px;
-    display: flex;
-    justify-content: center;
-} */
+    margin: 20px 20px 20px 20px;
+    font-size: 15px;
+    font-weight: bold;}
+.footer img {
+    width: 50px;
+    height: 50px;
+    margin: 5px 5px 0 5px;}
+
+
+#notes {
+    color: var(--background-color);
+    font-weight: bold;}
+#individual-note {
+    margin: 2px;}
+
+
+.about, .projects, .header {
+    margin: 0 10% 0 10%;}
+.header, .projects {
+    padding: 20px 0 100px 0;}
+
+
+.contact-page, .login-page, .signup-page, .notes-page, .capstone-page {
+    margin: 0 10% 0 10%;
+    padding: 50px 0 50px 0;}
