@@ -4,6 +4,8 @@ from . import db
 import pickle
 import numpy as np
 import pandas as pd
+from .euclidean import euc_dist
+from .preprocessing import preprocess_input
 
 views = Blueprint('views', __name__)
 
@@ -29,6 +31,20 @@ def contact():
     return render_template("contact.html")
 
 @views.route("/football", methods=['GET', 'POST'])
-def predict():
-    return render_template('football.html')
+def football():
+    if request.method == 'POST':
+        if request.form['submit'] == "Get Similar Players":
+            selected_player = request.form['similars']
+            similars = euc_dist(selected_player)
 
+            return render_template('football.html', selected_player=selected_player, similars=similars)
+
+        if request.form['submit'] == 'Make Prediction':
+            model = pickle.load(open('model.pkl', 'rb'))
+            predict_player = request.form['predict-player']
+            x = preprocess_input(predict_player)
+            prediction = round( float(model.predict(x)), 2 )
+
+            return render_template('football.html', prediction=prediction, predict_player=predict_player)
+    else:
+        return render_template('football.html')

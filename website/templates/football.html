@@ -1,9 +1,33 @@
 {% extends "base.html" %}
 
-{% block title %}Football{% endblock %}
+{% block title %}Football Scout{% endblock %}
 
 {% block content %}
 <div class="capstone-page">
+
+    <div>
+        <form action="{{ url_for('views.football')}}" method="POST">
+            <input type="form-input" id="similars" name="similars" placeholder="Player Name"><br>
+            <input type="submit" value="Get Similar Players" name="submit">
+        </form>
+    </div><br>
+    {% if similars %}
+        <div class="result"><p>Most similar players to {{selected_player}} are: {{ similars[0] }}, {{ similars[1] }}, {{ similars[2] }}</p></div>
+    {% endif %}
+
+
+
+    <div>
+        <form action="{{ url_for('views.football')}}" method="POST">
+            <input type="form-input" id="predict-player" name="predict-player" placeholder="Player Name"><br>
+            <input type="submit" value="Make Prediction" name="submit">
+        </form>
+    </div><br>
+    {% if prediction %}
+        <div class="result2"><p>Predicted ability of {{predict_player}} is: {{prediction}}</p></div>
+    {% endif %}
+
+
 
     <div>
         <p>Create a <a href="/sign-up">free account</a> to save your results.</p>

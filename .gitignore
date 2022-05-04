@@ -7,3 +7,9 @@ website/static/best_books.png
 website/static/profile_background.jpg
 website/static/profile_picture.jpg
 website/static/trackit_fitness.png
+website/static/data/Country.csv
+website/static/data/League.csv
+website/static/data/Match.csv
+website/static/data/Team.csv
+website/static/data/Team_Attributes.csv
+website/static/data/database.sqlite
