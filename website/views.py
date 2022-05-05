@@ -1,11 +1,10 @@
 from flask import Blueprint, render_template, request, flash
-from .models import Message, Note
+from .models import Message
 from . import db
 import pickle
-import numpy as np
-import pandas as pd
 from .euclidean import euc_dist
 from .preprocessing import preprocess_input
+from .more_details import get_more_details
 
 views = Blueprint('views', __name__)
 
@@ -36,8 +35,22 @@ def football():
         if request.form['submit'] == "Get Similar Players":
             selected_player = request.form['similars']
             similars = euc_dist(selected_player)
+            
+            height = []
+            weight = []
+            age = []
+            current_rating = []
+            preferred_foot = []
 
-            return render_template('football.html', selected_player=selected_player, similars=similars)
+            for i in range(0, 10):
+                age.append(2022 - int(get_more_details(similars[i])['birth_year']))
+                current_rating.append(str(round(float(get_more_details(similars[i])['overall_rating']), 2)) + '/100')
+                height.append(str(float(get_more_details(similars[i])['height'])) + ' cm')
+                weight.append(str(round(float(get_more_details(similars[0])['weight']), 2)) + ' kg')
+                preferred_foot.append(str(get_more_details(similars[i])['preferred_foot'][0]))
+
+            return render_template('football.html', selected_player=selected_player, similars=similars,
+                height=height, weight=weight, age=age, current_rating=current_rating, preferred_foot=preferred_foot)
 
         if request.form['submit'] == 'Make Prediction':
             model = pickle.load(open('model.pkl', 'rb'))
