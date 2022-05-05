@@ -12,7 +12,10 @@
         </form>
     </div><br>
     {% if similars %}
-        <div class="result"><p>Most similar players to {{selected_player}} are: {{ similars[0] }}, {{ similars[1] }}, {{ similars[2] }}</p></div>
+        <div class="result"><p>The 10 most similar players to {{selected_player}} are:<br><br> 
+            {% for i in range(0, 10) %} 
+            {{similars[i]}}, {{age[i]}} Years Old, Rating {{current_rating[i]}}, Height {{height[i]}}, Weight {{weight[i]}}, Preferred Foot {{preferred_foot[i]}} <br>
+            {% endfor %}</p></div>
     {% endif %}
 
 
@@ -24,7 +27,7 @@
         </form>
     </div><br>
     {% if prediction %}
-        <div class="result2"><p>Predicted ability of {{predict_player}} is: {{prediction}}</p></div>
+        <div class="result2"><p>Predicted ability of {{predict_player}} in 3 years is: {{prediction}}</p></div>
     {% endif %}
 
 
