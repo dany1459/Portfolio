@@ -24,11 +24,7 @@ def preprocess_input(player):
     players['birth_day'] = players['birthday'].apply(lambda x: x.day)
     players = players.drop('birthday', axis=1)
 
-    categoricals = stats.groupby(by='player_api_id', as_index=False)[[
-        'player_api_id',
-        'preferred_foot',
-        'attacking_work_rate',
-        'defensive_work_rate']].head(1)
+    categoricals = stats.groupby(by='player_api_id', as_index=False)[['player_api_id', 'preferred_foot', 'attacking_work_rate', 'defensive_work_rate']].head(1)
 
     for column in ['attacking_work_rate', 'defensive_work_rate']:
         categoricals[column] = categoricals[column].apply(lambda x: np.NaN if x not in ['low', 'medium', 'high'] else x)
