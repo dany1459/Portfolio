@@ -13,7 +13,6 @@ data = get_data(sqlcommand)
 data = data.dropna()
 unique = data["NAME"].unique()
 
-unique = data["NAME"].unique()
 dic = {}
 for name in unique:
 	row = data[data["NAME"]==name].iloc[[0]]
@@ -66,29 +65,27 @@ for name in unique:
 	dic[name] = vector
 
 def euclidean_distance(vector1, vector2):
-        return math.sqrt(sum((vector1[i] - vector2[i]) ** 2 for i in range(len(vector1))))
+    return math.sqrt(sum((vector1[i] - vector2[i]) ** 2 for i in range(len(vector1))))
 
 def euc_dist(asked_player):
-        vector_player1 = list(dic[asked_player])
-        similars = {}
-        for player in dic:
-                if player != asked_player:
-                        vector_player2 = list(dic[player])
-                        distance = euclidean_distance(vector_player1, vector_player2)
-                        similars[player] = distance
-                else:
-                    pass
-        similars_names = sorted(similars, key=similars.get, reverse=False)
-        result = []
-        cont = 0
-        for similar in similars_names:
-                if cont > 9:
-                        break
-                euc_dist = similars[similar]
-                result.append((similar))
-				# result.append((similar, euc_dist))
-                cont += 1 
-        return result
+	vector_player1 = list(dic[asked_player])
+	similars = {}
+	for player in dic:
+		if player != asked_player:
+			vector_player2 = list(dic[player])
+			distance = euclidean_distance(vector_player1, vector_player2)
+			similars[player] = distance
+		else:
+			pass
+	similars_names = sorted(similars, key=similars.get, reverse=False)
+	result = []
+	cont = 0
+	for similar in similars_names:
+		if cont > 9:
+			break
+		result.append((similar))
+		cont += 1 
+	return result
     
 similars = euc_dist("Cristiano Ronaldo")
 # print(similars)
