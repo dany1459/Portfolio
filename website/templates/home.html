@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-{% from "components/card.html" import card %}
-{% from "components/card2.html" import card2 %}
+{% from "components/card_projects.html" import card_projects %}
+{% from "components/card_about.html" import card_about %}
 
 {% block title %}Home Page{% endblock %}
 
@@ -21,47 +21,47 @@
         <h3>About Me</h3>
         <div class="row">
             <div class="col-xs-1">
-                {{card2('static/education.png', 
+                {{card_about('static/education.png', 
                     "Al. D. Ghica College of Sciences 2003-2007",
                     "https://www.facebook.com/Liceul-Teoretic-Alexandru-Ghica-Alexandria-830767510327046/")}}
             </div>
             <div class="col-xs-1">
-                {{card2('static/education.png', 
+                {{card_about('static/education.png', 
                     "Carol Davila Medical University 2007 - 2013",
                     "https://umfcd.ro")}}
             </div>
             <div class="col-xs-1">
-                {{card2('static/work.png', 
+                {{card_about('static/work.png', 
                     'Chef at Hornsjoe Hoyfjellshotell Aug 2014 - Mar 2016',
                     "https://www.hornsjoe.no")}}
             </div>
             <div class="col-xs-1">
-                {{card2('static/volunteer.png', 
+                {{card_about('static/volunteer.png', 
                     'Volunteer at DAPP Zambia May 2016 - Sept 2016',
                     'http://dappzambia.org')}}
             </div>
             <div class="col-xs-1">
-                {{card2('static/work.png', 
+                {{card_about('static/work.png', 
                     "Chef at Trenta Pizza Feb 2017 - Jan 2018",
                     "https://www.trentapizza.ro")}}
             </div>
             <div class="col-xs-1">
-                {{card2('static/education.png', 
+                {{card_about('static/education.png', 
                     "Horeca School for Chefs Jun 2017 - Sept 2017",
                     "https://horecaschool.ro")}}
             </div>
             <div class="col-xs-1">
-                {{card2('static/work.png', 
+                {{card_about('static/work.png', 
                     "Head Chef at Flash Harry's Feb 2018 - Mar 2020",
                     "https://www.flashharrys.ie")}}
             </div>
             <div class="col-xs-1">
-                {{card2('static/work.png', 
+                {{card_about('static/work.png', 
                     "Chef at Hartley's Restaurant Jul 2020 - Jun 2021",
                     "http://hartleys.ie")}}
             </div>
             <div class="col-xs-1">
-                {{card2('static/education.png', 
+                {{card_about('static/education.png', 
                     'Strive School Sep 2021 - May 2022',
                     'https://epicode.com')}}
             </div>
@@ -72,36 +72,71 @@
         <h3>Data Science Projects</h3>
         <div class="row">
             <div class="col-xs-1">
-                {{card('static/credit-card.jpg', 
+                {{card_projects('static/credit-card.jpg', 
                     'Credit Card Fraud', 
                     'https://github.com/dany1459/AI-Engineering/blob/main/Chapter%202/07.%20SVM/04_BONUS_credit_card_fraud_kaggle.ipynb')}}
             </div>
             <div class="col-xs-1">
-                {{card('static/hipocrate.jpg', 
+                {{card_projects('static/hipocrate.jpg', 
                     'Hipocratia', 
                     'https://github.com/dany1459/AI-Engineering/tree/main/Chapter%202/09.%20Hipocratia')}}
             </div>
             <div class="col-xs-1">
-                {{card('static/trackit_fitness.png', 
+                {{card_projects('static/trackit_fitness.png', 
                     'Trackit Fitness App', 
                     'https://github.com/dany1459/AI-Engineering/tree/main/Chapter%202/Trackit%20Fitness%20App')}}
             </div>
             <div class="col-xs-1">
-                {{card('static/yoga_silhouette.jpg', 
+                {{card_projects('static/yoga_silhouette.jpg', 
                     'Fitness Pygame', 
                     'https://github.com/dany1459/AI-Engineering/tree/main/Chapter%203/17.%20Fitness%20Pygame')}}
             </div>
             <div class="col-xs-1">
-                {{card('static/best_books.jpg', 
+                {{card_projects('static/best_books.jpg', 
                     'Best Books Analysis', 
                     'https://github.com/dany1459/AI-Engineering/tree/main/Chapter%201/Best%20Books%20Ever%20Challenge')}}
             </div>
             <div class="col-xs-1">
-                {{card('static/self-driving-car.jpg', 
+                {{card_projects('static/self-driving-car.jpg', 
                     'Self-Driving Cars', 
                     'https://github.com/dany1459/AI-Engineering/tree/main/Chapter%203/09.%20Computer%20Vision%20Team%20Project')}}
             </div>
         </div>
     </div>
 
+    <footer class="footer">
+        <div class="container">
+            <div class="row" align="center">
+                <div class="col">
+                    Powered by: <br>
+                        <a href="https://www.python.org" target="_blank"><img src="static/logos/python-logo.png" alt="Python"></a>
+                        <a href="https://html.com" target="_blank"><img src="static/logos/html-logo.png" alt="HTML"></a>
+                        <a href="https://devdocs.io/css/" target="_blank"><img src="static/logos/css-logo.png" alt="CSS"></a>
+                        <a href="https://devdocs.io/javascript/" target="_blank"><img src="static/logos/javascript-logo.png" alt="JavaScript"></a>
+                        <a href="https://scikit-learn.org/stable/index.html" target="_blank"><img src="static/logos/sklearn-logo.png" alt="SKLearn"></a>
+                        <a href="https://pandas.pydata.org/docs/getting_started/index.html" target="_blank"><img src="static/logos/pandas-logo.png" alt="Pandas"></a>
+                        <a href="https://jinja.palletsprojects.com/en/3.0.x/" target="_blank"><img src="static/logos/jinja-logo.png" alt="Jinja"></a>
+                        <a href="https://getbootstrap.com" target="_blank"><img src="static/logos/bootstrap-logo.png" alt="Bootstrap"></a>
+                        <a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank"><img src="static/logos/flask-logo.png" alt="Flask"></a>
+                        <a href="https://werkzeug.palletsprojects.com/en/2.0.x/" target="_blank"><img src="static/logos/werkzeug-logo.png" alt="Werkzeug"></a>
+                        <a href="https://dev.mysql.com/doc/" target="_blank"><img src="static/logos/sql-logo.png" alt="SQL Database"></a>
+                        <!-- <a href="https://www.docker.com" target="_blank"><img src="static/logos/docker-logo.png" alt="Docker"></a> -->
+                </div>
+
+                <div class="col"><b><br>
+                    <a href="/">About</a><br>
+                    <a href="/football">Scouting</a><br>
+                    <a href="/contact">Contact</a><br>
+                    {% if current_user.is_authenticated %}
+                        <a href="/notes">Notes</a><br>
+                        <a href="/logout">Sign Out</a><br>
+                    {% else %}
+                        <a href="/login">Log In</a><br>
+                        <a href="/sign-up">Sign Up</a><br>
+                    {% endif %}</b>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
 {% endblock %}
