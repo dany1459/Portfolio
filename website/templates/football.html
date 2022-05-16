@@ -3,38 +3,57 @@
 {% block title %}Football Scout{% endblock %}
 
 {% block content %}
-<div class="capstone-page">
+<div class="capstone-page" align="center">
 
     <div>
+        <h4>What player do you need to replace?</h4>
         <form action="{{ url_for('views.football')}}" method="POST">
-            <input type="form-input" id="similars" name="similars" placeholder="Player Name"><br>
-            <input type="submit" value="Get Similar Players" name="submit">
+            <input type="form-input" id="similars" name="similars" placeholder="Player Name" class="form-control" style="max-width: 500px;"><br>
+            <input type="submit" value="Get Similar Players" name="submit" id="similars-button" class="btn btn-primary">
         </form>
     </div><br>
     {% if similars %}
-        <div class="result"><p>The 10 most similar players to {{selected_player}} are:<br><br> 
-            {% for i in range(0, 10) %} 
-            {{similars[i]}}, {{age[i]}} Years Old, Rating {{current_rating[i]}}, Height {{height[i]}}, Weight {{weight[i]}}, Preferred Foot {{preferred_foot[i]}} <br>
-            {% endfor %}</p></div>
+        <div><p>The 10 most similar players to {{selected_player}} are:
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Current Ratting</th>
+                    <th>Height</th>
+                    <th>Weight</th>
+                    <th>Preffered Foot</th>
+                </tr>
+                {% for i in range(0, 10) %}
+                <tr>
+                    <td>{{similars[i]}}</td>
+                    <td>{{age[i]}}</td>
+                    <td>{{current_rating[i]}}</td>
+                    <td>{{height[i]}}</td>
+                    <td>{{weight[i]}}</td>
+                    <td>{{preferred_foot[i]}}</td>
+                </tr>
+                {% endfor %}</p></div>
+            </table><br>
     {% endif %}
 
 
 
     <div>
+        <h4>Type a player's name in order to check their evolution over the next few years</h4>
         <form action="{{ url_for('views.football')}}" method="POST">
-            <input type="form-input" id="predict-player" name="predict-player" placeholder="Player Name"><br>
-            <input type="submit" value="Make Prediction" name="submit">
+            <input type="form-input" id="predict-player" name="predict-player" placeholder="Player Name" class="form-control" style="max-width: 500px;"><br>
+            <input type="submit" value="Make Prediction" name="submit" id="predict-button" class="btn btn-primary">
         </form>
     </div><br>
     {% if prediction %}
-        <div class="result2"><p>Predicted ability of {{predict_player}} in 3 years is: {{prediction}}</p></div>
+        <div><p>The predicted ability of <span class="prediction-result">{{predict_player}}</span> in 3 years is: <span class="prediction-result">{{prediction}}</span>.</p></div>
     {% endif %}
 
 
 
     <div>
-        <p>Create a <a href="/sign-up">free account</a> to save your results.</p>
-        <p>Or <a href="/login">login</a> if you are already registered.</p>
+        <p>Create a <a href="/sign-up">free account</a> to save your enquires in the <a href="/notes">notes</a> section.</p>
+        <p>Or <a href="/login">log in</a> if you are already registered.</p>
     </div>
 
 </div>
