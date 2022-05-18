@@ -13,3 +13,4 @@ website/static/data/Match.csv
 website/static/data/Team.csv
 website/static/data/Team_Attributes.csv
 website/static/data/database.sqlite
+/node_modules
