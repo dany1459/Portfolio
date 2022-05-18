@@ -2,7 +2,8 @@
     --background-color: #131B23;
     --primary-color: #FFFAFF;
     --secondary-color: #5BC8AF;
-    --tertiary-color: crimson;}
+    --tertiary-color: crimson;
+    --new-background-color: #435058;}
 * {
     margin: 0px;
     padding: 0px;
@@ -10,10 +11,11 @@
 
 
 body, .card {
-    background: var(--background-color);
+    background: var(--new-background-color);
     color: var(--primary-color);
     font-family: 'Montserrat', sans-serif;
-    font-size: 18px;}
+    font-size: 18px;
+    border: 0px;}
 h1, h2, h3 {
     font-weight: bold;
     font-family: 'Open Sans', sans-serif;}
@@ -27,7 +29,8 @@ a:link {
 
 
 #navigation-bar {
-    background-color: var(--secondary-color);}
+    background-color: var(--secondary-color);
+    position: relative;}
 #navigation-bar a {
     font-size: 24px;
     font-weight: bold;
@@ -36,18 +39,18 @@ a:link {
     color: var(--tertiary-color);}
 
 
-#contact-button, #signup-button, #login-button, #add-note-button {
+#contact-button, #signup-button, #login-button, #add-note-button, #similars-button, #predict-button {
     background-color: var(--primary-color);
     color: var(--background-color);
     font-weight: bold;
     border: solid 1px var(--secondary-color);}
-#contact-button:hover, #signup-button:hover, #login-button:hover, #add-note-button:hover {
+#contact-button:hover, #signup-button:hover, #login-button:hover, #add-note-button:hover, #similars-button:hover, #predict-button:hover  {
     background-color: var(--background-color);
     color: var(--primary-color);}
 
 
 .footer {
-    margin: 20px 20px 20px 20px;
+    margin: 0px 20px 20px 20px;
     font-size: 15px;
     font-weight: bold;}
 .footer img {
@@ -71,4 +74,25 @@ a:link {
 
 .contact-page, .login-page, .signup-page, .notes-page, .capstone-page {
     margin: 0 10% 0 10%;
-    padding: 50px 0 50px 0;}
+    padding: 20px 0 50px 0;}
+label {
+    padding: 10px 0 0px 0;}
+
+
+table th {
+    text-align: left;
+    border: 1px solid black;
+    padding: 5px 15px 5px 15px;}
+table td {
+    border: 1px solid black;
+    padding: 5px 15px 5px 15px;}
+table tr:nth-child(even) td {
+    background-color: var(--background-color);}
+.form-control {
+    max-width: 1000px;
+    margin: 20px;}
+
+
+.prediction-result {
+    color: var(--tertiary-color);
+    font-weight: bold;}
